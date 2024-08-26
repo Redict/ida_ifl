@@ -123,8 +123,8 @@ def parse_function_args(ea: int) -> str:
     if frame is None:
         return ""
 
-    start = idc.get_first_member(frame)
-    end = idc.get_last_member(frame)
+    start = idc.get_member_by_idx(frame, 0)
+    end = idc.get_member_by_idx(frame, idc.get_member_qty(frame))
     count = 0
     max_count = 10000
     args_str = ""
